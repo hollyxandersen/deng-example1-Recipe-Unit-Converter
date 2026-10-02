@@ -1,0 +1,1246 @@
+{
+  "count": 80,
+  "unit": "grams per US customary cup (236.588 mL)",
+  "updated": "2026-09-07",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "attribution": {
+    "required": true,
+    "text": "Ingredient density data by ExactCup",
+    "url": "https://exactcup.github.io/",
+    "html": "<a href=\"https://exactcup.github.io/\">Ingredient density data by ExactCup</a>"
+  },
+  "documentation": "https://exactcup.github.io/api/",
+  "ingredients": [
+    {
+      "slug": "all-purpose-flour",
+      "name": "All-Purpose Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "plain flour",
+        "ap flour"
+      ],
+      "grams_per_us_cup": 120,
+      "grams_per_us_tablespoon": 7.5,
+      "grams_per_us_teaspoon": 2.5,
+      "grams_per_ml": 0.5072,
+      "ounces_per_us_cup": 4.233,
+      "url": "https://exactcup.github.io/cups-to-grams/all-purpose-flour/"
+    },
+    {
+      "slug": "bread-flour",
+      "name": "Bread Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "strong flour"
+      ],
+      "grams_per_us_cup": 120,
+      "grams_per_us_tablespoon": 7.5,
+      "grams_per_us_teaspoon": 2.5,
+      "grams_per_ml": 0.5072,
+      "ounces_per_us_cup": 4.233,
+      "url": "https://exactcup.github.io/cups-to-grams/bread-flour/"
+    },
+    {
+      "slug": "cake-flour",
+      "name": "Cake Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [],
+      "grams_per_us_cup": 120,
+      "grams_per_us_tablespoon": 7.5,
+      "grams_per_us_teaspoon": 2.5,
+      "grams_per_ml": 0.5072,
+      "ounces_per_us_cup": 4.233,
+      "url": "https://exactcup.github.io/cups-to-grams/cake-flour/"
+    },
+    {
+      "slug": "whole-wheat-flour",
+      "name": "Whole Wheat Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "wholemeal flour"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/whole-wheat-flour/"
+    },
+    {
+      "slug": "self-rising-flour",
+      "name": "Self-Rising Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "self raising flour"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/self-rising-flour/"
+    },
+    {
+      "slug": "almond-flour",
+      "name": "Almond Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "ground almonds",
+        "almond meal"
+      ],
+      "grams_per_us_cup": 96,
+      "grams_per_us_tablespoon": 6,
+      "grams_per_us_teaspoon": 2,
+      "grams_per_ml": 0.4058,
+      "ounces_per_us_cup": 3.386,
+      "url": "https://exactcup.github.io/cups-to-grams/almond-flour/"
+    },
+    {
+      "slug": "cornstarch",
+      "name": "Cornstarch",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "corn flour",
+        "cornflour"
+      ],
+      "grams_per_us_cup": 112,
+      "grams_per_us_tablespoon": 7,
+      "grams_per_us_teaspoon": 2.333,
+      "grams_per_ml": 0.4734,
+      "ounces_per_us_cup": 3.951,
+      "url": "https://exactcup.github.io/cups-to-grams/cornstarch/"
+    },
+    {
+      "slug": "cocoa-powder",
+      "name": "Cocoa Powder",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "unsweetened cocoa"
+      ],
+      "grams_per_us_cup": 85,
+      "grams_per_us_tablespoon": 5.313,
+      "grams_per_us_teaspoon": 1.771,
+      "grams_per_ml": 0.3593,
+      "ounces_per_us_cup": 2.998,
+      "url": "https://exactcup.github.io/cups-to-grams/cocoa-powder/"
+    },
+    {
+      "slug": "granulated-sugar",
+      "name": "Granulated Sugar",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "white sugar",
+        "granulated white sugar"
+      ],
+      "grams_per_us_cup": 200,
+      "grams_per_us_tablespoon": 12.5,
+      "grams_per_us_teaspoon": 4.167,
+      "grams_per_ml": 0.8454,
+      "ounces_per_us_cup": 7.055,
+      "url": "https://exactcup.github.io/cups-to-grams/granulated-sugar/"
+    },
+    {
+      "slug": "brown-sugar",
+      "name": "Brown Sugar (packed)",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "light brown sugar",
+        "dark brown sugar"
+      ],
+      "grams_per_us_cup": 213,
+      "grams_per_us_tablespoon": 13.313,
+      "grams_per_us_teaspoon": 4.438,
+      "grams_per_ml": 0.9003,
+      "ounces_per_us_cup": 7.513,
+      "url": "https://exactcup.github.io/cups-to-grams/brown-sugar/"
+    },
+    {
+      "slug": "powdered-sugar",
+      "name": "Powdered Sugar",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "confectioners sugar",
+        "icing sugar"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/powdered-sugar/"
+    },
+    {
+      "slug": "honey",
+      "name": "Honey",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [],
+      "grams_per_us_cup": 340,
+      "grams_per_us_tablespoon": 21.25,
+      "grams_per_us_teaspoon": 7.083,
+      "grams_per_ml": 1.4371,
+      "ounces_per_us_cup": 11.993,
+      "url": "https://exactcup.github.io/cups-to-grams/honey/"
+    },
+    {
+      "slug": "maple-syrup",
+      "name": "Maple Syrup",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [],
+      "grams_per_us_cup": 322,
+      "grams_per_us_tablespoon": 20.125,
+      "grams_per_us_teaspoon": 6.708,
+      "grams_per_ml": 1.361,
+      "ounces_per_us_cup": 11.358,
+      "url": "https://exactcup.github.io/cups-to-grams/maple-syrup/"
+    },
+    {
+      "slug": "corn-syrup",
+      "name": "Corn Syrup",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [],
+      "grams_per_us_cup": 328,
+      "grams_per_us_tablespoon": 20.5,
+      "grams_per_us_teaspoon": 6.833,
+      "grams_per_ml": 1.3864,
+      "ounces_per_us_cup": 11.57,
+      "url": "https://exactcup.github.io/cups-to-grams/corn-syrup/"
+    },
+    {
+      "slug": "butter",
+      "name": "Butter",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/butter/"
+    },
+    {
+      "slug": "milk",
+      "name": "Milk",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "whole milk"
+      ],
+      "grams_per_us_cup": 240,
+      "grams_per_us_tablespoon": 15,
+      "grams_per_us_teaspoon": 5,
+      "grams_per_ml": 1.0144,
+      "ounces_per_us_cup": 8.466,
+      "url": "https://exactcup.github.io/cups-to-grams/milk/"
+    },
+    {
+      "slug": "heavy-cream",
+      "name": "Heavy Cream",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "double cream",
+        "whipping cream",
+        "heavy whipping cream",
+        "dairy cream"
+      ],
+      "grams_per_us_cup": 232,
+      "grams_per_us_tablespoon": 14.5,
+      "grams_per_us_teaspoon": 4.833,
+      "grams_per_ml": 0.9806,
+      "ounces_per_us_cup": 8.184,
+      "url": "https://exactcup.github.io/cups-to-grams/heavy-cream/"
+    },
+    {
+      "slug": "sour-cream",
+      "name": "Sour Cream",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 230,
+      "grams_per_us_tablespoon": 14.375,
+      "grams_per_us_teaspoon": 4.792,
+      "grams_per_ml": 0.9722,
+      "ounces_per_us_cup": 8.113,
+      "url": "https://exactcup.github.io/cups-to-grams/sour-cream/"
+    },
+    {
+      "slug": "cream-cheese",
+      "name": "Cream Cheese",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 232,
+      "grams_per_us_tablespoon": 14.5,
+      "grams_per_us_teaspoon": 4.833,
+      "grams_per_ml": 0.9806,
+      "ounces_per_us_cup": 8.184,
+      "url": "https://exactcup.github.io/cups-to-grams/cream-cheese/"
+    },
+    {
+      "slug": "yogurt",
+      "name": "Yogurt",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "yoghurt",
+        "greek yogurt",
+        "natural yogurt",
+        "skyr"
+      ],
+      "grams_per_us_cup": 245,
+      "grams_per_us_tablespoon": 15.313,
+      "grams_per_us_teaspoon": 5.104,
+      "grams_per_ml": 1.0356,
+      "ounces_per_us_cup": 8.642,
+      "url": "https://exactcup.github.io/cups-to-grams/yogurt/"
+    },
+    {
+      "slug": "vegetable-oil",
+      "name": "Vegetable Oil",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "canola oil",
+        "cooking oil",
+        "sunflower oil",
+        "corn oil",
+        "soybean oil"
+      ],
+      "grams_per_us_cup": 218,
+      "grams_per_us_tablespoon": 13.625,
+      "grams_per_us_teaspoon": 4.542,
+      "grams_per_ml": 0.9214,
+      "ounces_per_us_cup": 7.69,
+      "url": "https://exactcup.github.io/cups-to-grams/vegetable-oil/"
+    },
+    {
+      "slug": "olive-oil",
+      "name": "Olive Oil",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 216,
+      "grams_per_us_tablespoon": 13.5,
+      "grams_per_us_teaspoon": 4.5,
+      "grams_per_ml": 0.913,
+      "ounces_per_us_cup": 7.619,
+      "url": "https://exactcup.github.io/cups-to-grams/olive-oil/"
+    },
+    {
+      "slug": "coconut-oil",
+      "name": "Coconut Oil",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 218,
+      "grams_per_us_tablespoon": 13.625,
+      "grams_per_us_teaspoon": 4.542,
+      "grams_per_ml": 0.9214,
+      "ounces_per_us_cup": 7.69,
+      "url": "https://exactcup.github.io/cups-to-grams/coconut-oil/"
+    },
+    {
+      "slug": "peanut-butter",
+      "name": "Peanut Butter",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [],
+      "grams_per_us_cup": 256,
+      "grams_per_us_tablespoon": 16,
+      "grams_per_us_teaspoon": 5.333,
+      "grams_per_ml": 1.082,
+      "ounces_per_us_cup": 9.03,
+      "url": "https://exactcup.github.io/cups-to-grams/peanut-butter/"
+    },
+    {
+      "slug": "chocolate-chips",
+      "name": "Chocolate Chips",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "choc chips",
+        "chocolate morsels",
+        "semi-sweet chocolate chips"
+      ],
+      "grams_per_us_cup": 170,
+      "grams_per_us_tablespoon": 10.625,
+      "grams_per_us_teaspoon": 3.542,
+      "grams_per_ml": 0.7185,
+      "ounces_per_us_cup": 5.997,
+      "url": "https://exactcup.github.io/cups-to-grams/chocolate-chips/"
+    },
+    {
+      "slug": "shredded-coconut",
+      "name": "Shredded Coconut",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "desiccated coconut"
+      ],
+      "grams_per_us_cup": 80,
+      "grams_per_us_tablespoon": 5,
+      "grams_per_us_teaspoon": 1.667,
+      "grams_per_ml": 0.3381,
+      "ounces_per_us_cup": 2.822,
+      "url": "https://exactcup.github.io/cups-to-grams/shredded-coconut/"
+    },
+    {
+      "slug": "raisins",
+      "name": "Raisins",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [],
+      "grams_per_us_cup": 145,
+      "grams_per_us_tablespoon": 9.063,
+      "grams_per_us_teaspoon": 3.021,
+      "grams_per_ml": 0.6129,
+      "ounces_per_us_cup": 5.115,
+      "url": "https://exactcup.github.io/cups-to-grams/raisins/"
+    },
+    {
+      "slug": "chopped-nuts",
+      "name": "Chopped Nuts",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "walnuts",
+        "pecans"
+      ],
+      "grams_per_us_cup": 120,
+      "grams_per_us_tablespoon": 7.5,
+      "grams_per_us_teaspoon": 2.5,
+      "grams_per_ml": 0.5072,
+      "ounces_per_us_cup": 4.233,
+      "url": "https://exactcup.github.io/cups-to-grams/chopped-nuts/"
+    },
+    {
+      "slug": "rolled-oats",
+      "name": "Rolled Oats",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "old fashioned oats",
+        "quick oats",
+        "porridge oats",
+        "wholegrain oats"
+      ],
+      "grams_per_us_cup": 90,
+      "grams_per_us_tablespoon": 5.625,
+      "grams_per_us_teaspoon": 1.875,
+      "grams_per_ml": 0.3804,
+      "ounces_per_us_cup": 3.175,
+      "url": "https://exactcup.github.io/cups-to-grams/rolled-oats/"
+    },
+    {
+      "slug": "white-rice",
+      "name": "White Rice (uncooked)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "long grain rice",
+        "basmati rice",
+        "jasmine rice"
+      ],
+      "grams_per_us_cup": 185,
+      "grams_per_us_tablespoon": 11.563,
+      "grams_per_us_teaspoon": 3.854,
+      "grams_per_ml": 0.7819,
+      "ounces_per_us_cup": 6.526,
+      "url": "https://exactcup.github.io/cups-to-grams/white-rice/"
+    },
+    {
+      "slug": "quinoa",
+      "name": "Quinoa (uncooked)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [],
+      "grams_per_us_cup": 170,
+      "grams_per_us_tablespoon": 10.625,
+      "grams_per_us_teaspoon": 3.542,
+      "grams_per_ml": 0.7185,
+      "ounces_per_us_cup": 5.997,
+      "url": "https://exactcup.github.io/cups-to-grams/quinoa/"
+    },
+    {
+      "slug": "cornmeal",
+      "name": "Cornmeal",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "polenta"
+      ],
+      "grams_per_us_cup": 122,
+      "grams_per_us_tablespoon": 7.625,
+      "grams_per_us_teaspoon": 2.542,
+      "grams_per_ml": 0.5157,
+      "ounces_per_us_cup": 4.303,
+      "url": "https://exactcup.github.io/cups-to-grams/cornmeal/"
+    },
+    {
+      "slug": "breadcrumbs",
+      "name": "Breadcrumbs (dry)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [],
+      "grams_per_us_cup": 108,
+      "grams_per_us_tablespoon": 6.75,
+      "grams_per_us_teaspoon": 2.25,
+      "grams_per_ml": 0.4565,
+      "ounces_per_us_cup": 3.81,
+      "url": "https://exactcup.github.io/cups-to-grams/breadcrumbs/"
+    },
+    {
+      "slug": "water",
+      "name": "Water",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [],
+      "grams_per_us_cup": 237,
+      "grams_per_us_tablespoon": 14.813,
+      "grams_per_us_teaspoon": 4.938,
+      "grams_per_ml": 1.0017,
+      "ounces_per_us_cup": 8.36,
+      "url": "https://exactcup.github.io/cups-to-grams/water/"
+    },
+    {
+      "slug": "salt",
+      "name": "Table Salt",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [],
+      "grams_per_us_cup": 273,
+      "grams_per_us_tablespoon": 17.063,
+      "grams_per_us_teaspoon": 5.688,
+      "grams_per_ml": 1.1539,
+      "ounces_per_us_cup": 9.63,
+      "url": "https://exactcup.github.io/cups-to-grams/salt/"
+    },
+    {
+      "slug": "caster-sugar",
+      "name": "Caster Sugar",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "superfine sugar",
+        "baker's special sugar",
+        "castor sugar"
+      ],
+      "grams_per_us_cup": 190,
+      "grams_per_us_tablespoon": 11.875,
+      "grams_per_us_teaspoon": 3.958,
+      "grams_per_ml": 0.8031,
+      "ounces_per_us_cup": 6.702,
+      "url": "https://exactcup.github.io/cups-to-grams/caster-sugar/"
+    },
+    {
+      "slug": "coconut-sugar",
+      "name": "Coconut Sugar",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "coconut palm sugar",
+        "coco sugar"
+      ],
+      "grams_per_us_cup": 154,
+      "grams_per_us_tablespoon": 9.625,
+      "grams_per_us_teaspoon": 3.208,
+      "grams_per_ml": 0.6509,
+      "ounces_per_us_cup": 5.432,
+      "url": "https://exactcup.github.io/cups-to-grams/coconut-sugar/"
+    },
+    {
+      "slug": "molasses",
+      "name": "Molasses",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "black treacle"
+      ],
+      "grams_per_us_cup": 340,
+      "grams_per_us_tablespoon": 21.25,
+      "grams_per_us_teaspoon": 7.083,
+      "grams_per_ml": 1.4371,
+      "ounces_per_us_cup": 11.993,
+      "url": "https://exactcup.github.io/cups-to-grams/molasses/"
+    },
+    {
+      "slug": "golden-syrup",
+      "name": "Golden Syrup",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "light treacle",
+        "cane syrup"
+      ],
+      "grams_per_us_cup": 340,
+      "grams_per_us_tablespoon": 21.25,
+      "grams_per_us_teaspoon": 7.083,
+      "grams_per_ml": 1.4371,
+      "ounces_per_us_cup": 11.993,
+      "url": "https://exactcup.github.io/cups-to-grams/golden-syrup/"
+    },
+    {
+      "slug": "agave-nectar",
+      "name": "Agave Nectar",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "agave syrup"
+      ],
+      "grams_per_us_cup": 336,
+      "grams_per_us_tablespoon": 21,
+      "grams_per_us_teaspoon": 7,
+      "grams_per_ml": 1.4202,
+      "ounces_per_us_cup": 11.852,
+      "url": "https://exactcup.github.io/cups-to-grams/agave-nectar/"
+    },
+    {
+      "slug": "pitted-dates-chopped",
+      "name": "Pitted Dates (Chopped)",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "chopped dates",
+        "pitted dates"
+      ],
+      "grams_per_us_cup": 149,
+      "grams_per_us_tablespoon": 9.313,
+      "grams_per_us_teaspoon": 3.104,
+      "grams_per_ml": 0.6298,
+      "ounces_per_us_cup": 5.256,
+      "url": "https://exactcup.github.io/cups-to-grams/pitted-dates-chopped/"
+    },
+    {
+      "slug": "dried-cranberries",
+      "name": "Dried Cranberries",
+      "category": "sugar",
+      "category_name": "Sugars & Syrups",
+      "aliases": [
+        "craisins",
+        "sweetened dried cranberries"
+      ],
+      "grams_per_us_cup": 114,
+      "grams_per_us_tablespoon": 7.125,
+      "grams_per_us_teaspoon": 2.375,
+      "grams_per_ml": 0.4818,
+      "ounces_per_us_cup": 4.021,
+      "url": "https://exactcup.github.io/cups-to-grams/dried-cranberries/"
+    },
+    {
+      "slug": "sweetened-condensed-milk",
+      "name": "Sweetened Condensed Milk",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "condensed milk"
+      ],
+      "grams_per_us_cup": 306,
+      "grams_per_us_tablespoon": 19.125,
+      "grams_per_us_teaspoon": 6.375,
+      "grams_per_ml": 1.2934,
+      "ounces_per_us_cup": 10.794,
+      "url": "https://exactcup.github.io/cups-to-grams/sweetened-condensed-milk/"
+    },
+    {
+      "slug": "evaporated-milk",
+      "name": "Evaporated Milk",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "unsweetened condensed milk"
+      ],
+      "grams_per_us_cup": 226,
+      "grams_per_us_tablespoon": 14.125,
+      "grams_per_us_teaspoon": 4.708,
+      "grams_per_ml": 0.9552,
+      "ounces_per_us_cup": 7.972,
+      "url": "https://exactcup.github.io/cups-to-grams/evaporated-milk/"
+    },
+    {
+      "slug": "buttermilk",
+      "name": "Buttermilk",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "cultured buttermilk"
+      ],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/buttermilk/"
+    },
+    {
+      "slug": "ricotta-cheese",
+      "name": "Ricotta Cheese",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "ricotta"
+      ],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/ricotta-cheese/"
+    },
+    {
+      "slug": "mascarpone",
+      "name": "Mascarpone",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "mascarpone cheese",
+        "italian cream cheese"
+      ],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/mascarpone/"
+    },
+    {
+      "slug": "cottage-cheese",
+      "name": "Cottage Cheese",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "curd cheese"
+      ],
+      "grams_per_us_cup": 226,
+      "grams_per_us_tablespoon": 14.125,
+      "grams_per_us_teaspoon": 4.708,
+      "grams_per_ml": 0.9552,
+      "ounces_per_us_cup": 7.972,
+      "url": "https://exactcup.github.io/cups-to-grams/cottage-cheese/"
+    },
+    {
+      "slug": "grated-parmesan",
+      "name": "Grated Parmesan",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "grated parmigiano",
+        "parmesan cheese"
+      ],
+      "grams_per_us_cup": 100,
+      "grams_per_us_tablespoon": 6.25,
+      "grams_per_us_teaspoon": 2.083,
+      "grams_per_ml": 0.4227,
+      "ounces_per_us_cup": 3.527,
+      "url": "https://exactcup.github.io/cups-to-grams/grated-parmesan/"
+    },
+    {
+      "slug": "shredded-cheddar",
+      "name": "Shredded Cheddar",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "grated cheddar",
+        "cheddar cheese"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/shredded-cheddar/"
+    },
+    {
+      "slug": "shredded-mozzarella",
+      "name": "Shredded Mozzarella",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "grated mozzarella",
+        "mozzarella cheese"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/shredded-mozzarella/"
+    },
+    {
+      "slug": "pumpkin-puree",
+      "name": "Pumpkin Puree",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "pumpkin pur\u00e9e",
+        "canned pumpkin"
+      ],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/pumpkin-puree/"
+    },
+    {
+      "slug": "applesauce",
+      "name": "Applesauce",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "apple sauce",
+        "apple puree"
+      ],
+      "grams_per_us_cup": 255,
+      "grams_per_us_tablespoon": 15.938,
+      "grams_per_us_teaspoon": 5.313,
+      "grams_per_ml": 1.0778,
+      "ounces_per_us_cup": 8.995,
+      "url": "https://exactcup.github.io/cups-to-grams/applesauce/"
+    },
+    {
+      "slug": "mashed-banana",
+      "name": "Mashed Banana",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "banana puree"
+      ],
+      "grams_per_us_cup": 227,
+      "grams_per_us_tablespoon": 14.188,
+      "grams_per_us_teaspoon": 4.729,
+      "grams_per_ml": 0.9595,
+      "ounces_per_us_cup": 8.007,
+      "url": "https://exactcup.github.io/cups-to-grams/mashed-banana/"
+    },
+    {
+      "slug": "rye-flour",
+      "name": "Rye Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "dark rye flour",
+        "whole rye flour"
+      ],
+      "grams_per_us_cup": 106,
+      "grams_per_us_tablespoon": 6.625,
+      "grams_per_us_teaspoon": 2.208,
+      "grams_per_ml": 0.448,
+      "ounces_per_us_cup": 3.739,
+      "url": "https://exactcup.github.io/cups-to-grams/rye-flour/"
+    },
+    {
+      "slug": "oat-flour",
+      "name": "Oat Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "ground oats"
+      ],
+      "grams_per_us_cup": 92,
+      "grams_per_us_tablespoon": 5.75,
+      "grams_per_us_teaspoon": 1.917,
+      "grams_per_ml": 0.3889,
+      "ounces_per_us_cup": 3.245,
+      "url": "https://exactcup.github.io/cups-to-grams/oat-flour/"
+    },
+    {
+      "slug": "coconut-flour",
+      "name": "Coconut Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [],
+      "grams_per_us_cup": 128,
+      "grams_per_us_tablespoon": 8,
+      "grams_per_us_teaspoon": 2.667,
+      "grams_per_ml": 0.541,
+      "ounces_per_us_cup": 4.515,
+      "url": "https://exactcup.github.io/cups-to-grams/coconut-flour/"
+    },
+    {
+      "slug": "semolina",
+      "name": "Semolina",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "semolina flour",
+        "durum semolina",
+        "rava",
+        "sooji",
+        "suji"
+      ],
+      "grams_per_us_cup": 163,
+      "grams_per_us_tablespoon": 10.188,
+      "grams_per_us_teaspoon": 3.396,
+      "grams_per_ml": 0.689,
+      "ounces_per_us_cup": 5.75,
+      "url": "https://exactcup.github.io/cups-to-grams/semolina/"
+    },
+    {
+      "slug": "tapioca-flour",
+      "name": "Tapioca Flour",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "tapioca starch"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/tapioca-flour/"
+    },
+    {
+      "slug": "arrowroot-powder",
+      "name": "Arrowroot Powder",
+      "category": "flour",
+      "category_name": "Flours & Starches",
+      "aliases": [
+        "arrowroot flour",
+        "arrowroot starch"
+      ],
+      "grams_per_us_cup": 128,
+      "grams_per_us_tablespoon": 8,
+      "grams_per_us_teaspoon": 2.667,
+      "grams_per_ml": 0.541,
+      "ounces_per_us_cup": 4.515,
+      "url": "https://exactcup.github.io/cups-to-grams/arrowroot-powder/"
+    },
+    {
+      "slug": "pecan-halves",
+      "name": "Pecan Halves",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "pecans"
+      ],
+      "grams_per_us_cup": 105,
+      "grams_per_us_tablespoon": 6.563,
+      "grams_per_us_teaspoon": 2.188,
+      "grams_per_ml": 0.4438,
+      "ounces_per_us_cup": 3.704,
+      "url": "https://exactcup.github.io/cups-to-grams/pecan-halves/"
+    },
+    {
+      "slug": "whole-almonds",
+      "name": "Whole Almonds",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "almonds"
+      ],
+      "grams_per_us_cup": 142,
+      "grams_per_us_tablespoon": 8.875,
+      "grams_per_us_teaspoon": 2.958,
+      "grams_per_ml": 0.6002,
+      "ounces_per_us_cup": 5.009,
+      "url": "https://exactcup.github.io/cups-to-grams/whole-almonds/"
+    },
+    {
+      "slug": "sesame-seeds",
+      "name": "Sesame Seeds",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "sesame"
+      ],
+      "grams_per_us_cup": 142,
+      "grams_per_us_tablespoon": 8.875,
+      "grams_per_us_teaspoon": 2.958,
+      "grams_per_ml": 0.6002,
+      "ounces_per_us_cup": 5.009,
+      "url": "https://exactcup.github.io/cups-to-grams/sesame-seeds/"
+    },
+    {
+      "slug": "chia-seeds",
+      "name": "Chia Seeds",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "chia"
+      ],
+      "grams_per_us_cup": 148,
+      "grams_per_us_tablespoon": 9.25,
+      "grams_per_us_teaspoon": 3.083,
+      "grams_per_ml": 0.6256,
+      "ounces_per_us_cup": 5.221,
+      "url": "https://exactcup.github.io/cups-to-grams/chia-seeds/"
+    },
+    {
+      "slug": "ground-flaxseed",
+      "name": "Ground Flaxseed",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "flax meal",
+        "ground flax",
+        "milled flaxseed",
+        "flaxseed meal"
+      ],
+      "grams_per_us_cup": 100,
+      "grams_per_us_tablespoon": 6.25,
+      "grams_per_us_teaspoon": 2.083,
+      "grams_per_ml": 0.4227,
+      "ounces_per_us_cup": 3.527,
+      "url": "https://exactcup.github.io/cups-to-grams/ground-flaxseed/"
+    },
+    {
+      "slug": "poppy-seeds",
+      "name": "Poppy Seeds",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "poppyseed"
+      ],
+      "grams_per_us_cup": 144,
+      "grams_per_us_tablespoon": 9,
+      "grams_per_us_teaspoon": 3,
+      "grams_per_ml": 0.6087,
+      "ounces_per_us_cup": 5.079,
+      "url": "https://exactcup.github.io/cups-to-grams/poppy-seeds/"
+    },
+    {
+      "slug": "panko-breadcrumbs",
+      "name": "Panko Breadcrumbs",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "panko",
+        "japanese breadcrumbs"
+      ],
+      "grams_per_us_cup": 50,
+      "grams_per_us_tablespoon": 3.125,
+      "grams_per_us_teaspoon": 1.042,
+      "grams_per_ml": 0.2113,
+      "ounces_per_us_cup": 1.764,
+      "url": "https://exactcup.github.io/cups-to-grams/panko-breadcrumbs/"
+    },
+    {
+      "slug": "steel-cut-oats",
+      "name": "Steel-Cut Oats",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "pinhead oats",
+        "irish oats"
+      ],
+      "grams_per_us_cup": 160,
+      "grams_per_us_tablespoon": 10,
+      "grams_per_us_teaspoon": 3.333,
+      "grams_per_ml": 0.6763,
+      "ounces_per_us_cup": 5.644,
+      "url": "https://exactcup.github.io/cups-to-grams/steel-cut-oats/"
+    },
+    {
+      "slug": "couscous-dry",
+      "name": "Couscous (Dry)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "dry couscous"
+      ],
+      "grams_per_us_cup": 175,
+      "grams_per_us_tablespoon": 10.938,
+      "grams_per_us_teaspoon": 3.646,
+      "grams_per_ml": 0.7397,
+      "ounces_per_us_cup": 6.173,
+      "url": "https://exactcup.github.io/cups-to-grams/couscous-dry/"
+    },
+    {
+      "slug": "bulgur-dry",
+      "name": "Bulgur (Dry)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "dry bulgur",
+        "bulgur wheat",
+        "cracked wheat"
+      ],
+      "grams_per_us_cup": 140,
+      "grams_per_us_tablespoon": 8.75,
+      "grams_per_us_teaspoon": 2.917,
+      "grams_per_ml": 0.5917,
+      "ounces_per_us_cup": 4.938,
+      "url": "https://exactcup.github.io/cups-to-grams/bulgur-dry/"
+    },
+    {
+      "slug": "pearl-barley",
+      "name": "Pearl Barley (Dry)",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "pearled barley",
+        "dry barley"
+      ],
+      "grams_per_us_cup": 213,
+      "grams_per_us_tablespoon": 13.313,
+      "grams_per_us_teaspoon": 4.438,
+      "grams_per_ml": 0.9003,
+      "ounces_per_us_cup": 7.513,
+      "url": "https://exactcup.github.io/cups-to-grams/pearl-barley/"
+    },
+    {
+      "slug": "vegetable-shortening",
+      "name": "Vegetable Shortening",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "shortening",
+        "crisco"
+      ],
+      "grams_per_us_cup": 184,
+      "grams_per_us_tablespoon": 11.5,
+      "grams_per_us_teaspoon": 3.833,
+      "grams_per_ml": 0.7777,
+      "ounces_per_us_cup": 6.49,
+      "url": "https://exactcup.github.io/cups-to-grams/vegetable-shortening/"
+    },
+    {
+      "slug": "tahini",
+      "name": "Tahini",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "sesame paste",
+        "tahini paste",
+        "hulled tahini",
+        "sesame butter"
+      ],
+      "grams_per_us_cup": 256,
+      "grams_per_us_tablespoon": 16,
+      "grams_per_us_teaspoon": 5.333,
+      "grams_per_ml": 1.082,
+      "ounces_per_us_cup": 9.03,
+      "url": "https://exactcup.github.io/cups-to-grams/tahini/"
+    },
+    {
+      "slug": "almond-butter",
+      "name": "Almond Butter",
+      "category": "dairy",
+      "category_name": "Dairy & Fats",
+      "aliases": [
+        "almond nut butter"
+      ],
+      "grams_per_us_cup": 272,
+      "grams_per_us_tablespoon": 17,
+      "grams_per_us_teaspoon": 5.667,
+      "grams_per_ml": 1.1497,
+      "ounces_per_us_cup": 9.595,
+      "url": "https://exactcup.github.io/cups-to-grams/almond-butter/"
+    },
+    {
+      "slug": "white-chocolate-chips",
+      "name": "White Chocolate Chips",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "white choc chips",
+        "white chocolate morsels"
+      ],
+      "grams_per_us_cup": 170,
+      "grams_per_us_tablespoon": 10.625,
+      "grams_per_us_teaspoon": 3.542,
+      "grams_per_ml": 0.7185,
+      "ounces_per_us_cup": 5.997,
+      "url": "https://exactcup.github.io/cups-to-grams/white-chocolate-chips/"
+    },
+    {
+      "slug": "walnuts-chopped",
+      "name": "Walnuts (Chopped)",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "walnuts",
+        "chopped walnuts"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/walnuts-chopped/"
+    },
+    {
+      "slug": "graham-cracker-crumbs",
+      "name": "Graham Cracker Crumbs",
+      "category": "grain",
+      "category_name": "Grains & Misc",
+      "aliases": [
+        "graham crumbs",
+        "crushed graham crackers"
+      ],
+      "grams_per_us_cup": 100,
+      "grams_per_us_tablespoon": 6.25,
+      "grams_per_us_teaspoon": 2.083,
+      "grams_per_ml": 0.4227,
+      "ounces_per_us_cup": 3.527,
+      "url": "https://exactcup.github.io/cups-to-grams/graham-cracker-crumbs/"
+    },
+    {
+      "slug": "hazelnuts",
+      "name": "Hazelnuts (Whole)",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "filberts",
+        "whole hazelnuts"
+      ],
+      "grams_per_us_cup": 142,
+      "grams_per_us_tablespoon": 8.875,
+      "grams_per_us_teaspoon": 2.958,
+      "grams_per_ml": 0.6002,
+      "ounces_per_us_cup": 5.009,
+      "url": "https://exactcup.github.io/cups-to-grams/hazelnuts/"
+    },
+    {
+      "slug": "cashews",
+      "name": "Cashews (Whole)",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "whole cashews",
+        "cashew nuts"
+      ],
+      "grams_per_us_cup": 113,
+      "grams_per_us_tablespoon": 7.063,
+      "grams_per_us_teaspoon": 2.354,
+      "grams_per_ml": 0.4776,
+      "ounces_per_us_cup": 3.986,
+      "url": "https://exactcup.github.io/cups-to-grams/cashews/"
+    },
+    {
+      "slug": "pine-nuts",
+      "name": "Pine Nuts",
+      "category": "baking",
+      "category_name": "Baking Ingredients",
+      "aliases": [
+        "pignoli",
+        "pinoli"
+      ],
+      "grams_per_us_cup": 142,
+      "grams_per_us_tablespoon": 8.875,
+      "grams_per_us_teaspoon": 2.958,
+      "grams_per_ml": 0.6002,
+      "ounces_per_us_cup": 5.009,
+      "url": "https://exactcup.github.io/cups-to-grams/pine-nuts/"
+    }
+  ]
+}
