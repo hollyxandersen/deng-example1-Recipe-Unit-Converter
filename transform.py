@@ -96,3 +96,12 @@ def convert_to_grams(recipe_df):
     recipe_df["grams"] = recipe_df.apply(calculate_grams, axis=1)
 
     return recipe_df
+
+def convert_to_per_portion(recipe_df, original_portions):
+    recipe_df = recipe_df.copy()
+
+    recipe_df["grams_per_portion"] = (
+        recipe_df["grams"] / original_portions
+    )
+
+    return recipe_df
