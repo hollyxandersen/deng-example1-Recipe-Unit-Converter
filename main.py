@@ -12,7 +12,8 @@ from transform import (
     make_alias_dataframe,
     match_recipe_ingredients,
     convert_to_grams,
-    convert_to_per_portion
+    convert_to_per_portion,
+    convert_from_grams
 )
 ingredients_df = make_ingredient_dataframe(data)
 alias_df = make_alias_dataframe(ingredients_df)
@@ -40,14 +41,29 @@ recipe_per_portion = convert_to_per_portion(
     original_portions
 )
 
+# Simulate choices the future app will make
+recipe_per_portion["output_unit"] = [
+    "g",
+    "original",
+    "cup"
+]
+
+desired_portions = 6
+
+converted_recipe = convert_from_grams(
+    recipe_per_portion,
+    desired_portions
+)
+
 print(
-    recipe_per_portion[
+    converted_recipe[
         [
             "ingredient",
-            "quantity",
-            "unit",
-            "grams",
-            "grams_per_portion"
+            "grams_per_portion",
+            "scaled_grams",
+            "output_unit",
+            "converted_quantity",
+            "display_unit"
         ]
     ]
 )

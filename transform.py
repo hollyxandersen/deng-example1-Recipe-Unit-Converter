@@ -105,3 +105,53 @@ def convert_to_per_portion(recipe_df, original_portions):
     )
 
     return recipe_df
+
+
+def convert_from_grams(recipe_df, desired_portions):
+    recipe_df = recipe_df.copy()
+
+    recipe_df["scaled_grams"] = (
+        recipe_df["grams_per_portion"] * desired_portions
+    )
+
+    def calculate_output(row):
+        output_unit = row["output_unit"]
+
+        if output_unit == "original":
+            output_unit = row["unit"]
+
+        grams = row["scaled_grams"]
+
+        if output_unit == "g":
+            return grams
+
+        elif output_unit == "cup":
+            return grams / row["grams_per_us_cup"]
+
+        elif output_unit == "tbsp":
+            return grams / row["grams_per_us_tablespoon"]
+
+        elif output_unit == "tsp":
+            return grams / row["grams_per_us_teaspoon"]
+
+        elif output_unit == "ml":
+            return grams / row["grams_per_ml"]
+
+        else:
+            return None
+
+    recipe_df["converted_quantity"] = recipe_df.apply(
+        calculate_output,
+        axis=1
+    )
+
+    recipe_df["display_unit"] = recipe_df.apply(
+        lambda row: (
+            row["unit"]
+            if row["output_unit"] == "original"
+            else row["output_unit"]
+        ),
+        axis=1
+    )
+
+    return recipe_df
