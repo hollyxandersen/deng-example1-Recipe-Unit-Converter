@@ -25,8 +25,6 @@ recipe_data = [
     {"quantity": 250, "unit": "ml", "ingredient": "milk"},
 ]
 
-original_portions = 4
-
 recipe_df = pd.DataFrame(recipe_data)
 
 matched_recipe = match_recipe_ingredients(
@@ -37,19 +35,44 @@ matched_recipe = match_recipe_ingredients(
 
 recipe_in_grams = convert_to_grams(matched_recipe)
 
+# original_portions = st.number_input(
+#     "Original number of portions",
+#     min_value=1,
+#     value=4,
+#     step=1
+# )
+
+
+# desired_portions = st.number_input(
+#     "Number of portions",
+#     min_value=1,
+#     value=6,
+#     step=1
+# )
+
+col1, col2 = st.columns(2)
+
+with col1:
+    original_portions = st.number_input(
+        "Original portions",
+        min_value=1,
+        value=4,
+        step=1
+    )
+
+with col2:
+    desired_portions = st.number_input(
+        "Desired portions",
+        min_value=1,
+        value=4,
+        step=1
+    )
+st.subheader("Choose output units")
+
 recipe_per_portion = convert_to_per_portion(
     recipe_in_grams,
     original_portions
 )
-
-desired_portions = st.number_input(
-    "Number of portions",
-    min_value=1,
-    value=4,
-    step=1
-)
-
-st.subheader("Choose output units")
 
 output_units = []
 
@@ -76,3 +99,6 @@ for _, row in converted_recipe.iterrows():
         f'{row["display_unit"]} '
         f'{row["ingredient"]}'
     )
+
+
+    #python -m streamlit run app.py
