@@ -35,20 +35,6 @@ matched_recipe = match_recipe_ingredients(
 
 recipe_in_grams = convert_to_grams(matched_recipe)
 
-# original_portions = st.number_input(
-#     "Original number of portions",
-#     min_value=1,
-#     value=4,
-#     step=1
-# )
-
-
-# desired_portions = st.number_input(
-#     "Number of portions",
-#     min_value=1,
-#     value=6,
-#     step=1
-# )
 
 col1, col2 = st.columns(2)
 

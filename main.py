@@ -7,13 +7,19 @@ from parser import (
 
 
 
-recipe_text ="""
-2 cups plain flour
-1 tbsp brown sugar
-250 ml milk
-1 onion
-2 cloves garlic
-salt to taste"""
+recipe_text = """
+125g caster sugar
+125g unsalted butter
+softened
+2 eggs
+1 tsp vanilla extract
+125g self-raising flour
+ICING
+200g icing sugar
+1-2 tbsp milk
+food colouring, sprinkles, marshmallows
+to decorate (optional)
+"""
 
 table= parse_recipe_text(recipe_text)
 
