@@ -224,6 +224,15 @@ def parse_quantity(parts):
     if first in unicode_fractions:
         return unicode_fractions[first], None, None, 1, None
 
+    # Mixed whole number + separate Unicode fraction, e.g. 1 ½
+    # (The existing attached form, 1½, is handled above.)
+    if len(parts) > 1 and parts[1] in unicode_fractions:
+        try:
+            whole = float(first)
+            return whole + unicode_fractions[parts[1]], None, None, 2, None
+        except ValueError:
+            pass
+
     # Mixed number
     # e.g. 1 1/2
     if len(parts) > 1 and "/" in parts[1]:

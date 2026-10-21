@@ -635,8 +635,9 @@ salt to taste""",
             # PREPARE MEASURABLE ROWS
             # -------------------------------------------------
 
+            # Ranges carry two quantities but still need ingredient matching.
             measurable_rows = parsed_recipe[
-                parsed_recipe["type"] == "measurable"
+                parsed_recipe["type"].isin(["measurable", "measurable_range"])
             ].copy()
 
             if not measurable_rows.empty:
@@ -697,7 +698,7 @@ salt to taste""",
                 # MEASURABLE INGREDIENTS
                 # =============================================
 
-                elif row_type == "measurable":
+                elif row_type in ("measurable", "measurable_range"):
 
                     matching_row = matched_recipe[
                         matched_recipe["row_id"] == parsed_row["row_id"]
@@ -706,7 +707,8 @@ salt to taste""",
                     if matching_row.empty:
                         continue
 
-                    # Reserve the output row above the ingredient-match selector.
+                    # Both endpoints of a range share one ingredient match.
+                    is_range = row_type == "measurable_range"
                     output_placeholder = st.empty()
 
                     # Keep the ingredient's match dropdown beside its recipe row.
@@ -748,10 +750,16 @@ salt to taste""",
                     # but ExactCup has no conversion data
                     if not can_convert:
 
-                        scaled_quantity = (
-                            parsed_row["quantity"]
-                            * scale_factor
-                        )
+                        if is_range:
+                            scaled_min = parsed_row["quantity_min"] * scale_factor
+                            scaled_max = parsed_row["quantity_max"] * scale_factor
+                            quantity_text = (
+                                f"{format_number(scaled_min)}–{format_number(scaled_max)}"
+                            )
+                        else:
+                            quantity_text = format_number(
+                                parsed_row["quantity"] * scale_factor
+                            )
 
                         ingredient_col, unit_col = output_placeholder.columns(
                             [0.73, 0.27],
@@ -762,7 +770,7 @@ salt to taste""",
                             st.markdown(
                                 f"""
                                 <div class="recipe-line">
-                                    {format_number(scaled_quantity)}
+                                    {quantity_text}
                                     {parsed_row["unit"]}
                                     {parsed_row["ingredient"]}
                                 </div>
@@ -818,22 +826,46 @@ salt to taste""",
 
                     matching_row["output_unit"] = chosen_unit
 
-                    # Convert only after the user's ingredient choice is applied.
-                    grams_row = convert_to_grams(matching_row)
-                    per_portion_row = convert_to_per_portion(
-                        grams_row, original_portions
+                    # Convert after ingredient selection. For a range, send
+                    # both endpoints through the same existing conversion pipeline.
+                    if is_range:
+                        endpoint_rows = pd.concat(
+                            [matching_row.copy(), matching_row.copy()],
+                            ignore_index=True
+                        )
+                        endpoint_rows["quantity"] = [
+                            parsed_row["quantity_min"],
+                            parsed_row["quantity_max"],
+                        ]
+                    else:
+                        endpoint_rows = matching_row
+
+                    grams_rows = convert_to_grams(endpoint_rows)
+                    per_portion_rows = convert_to_per_portion(
+                        grams_rows, original_portions
                     )
-                    converted_row = convert_from_grams(
-                        per_portion_row, desired_portions
-                    ).iloc[0]
+                    converted_rows = convert_from_grams(
+                        per_portion_rows, desired_portions
+                    )
+
+                    if is_range:
+                        quantities = converted_rows["converted_quantity"].tolist()
+                        quantity_text = (
+                            f"{format_number(quantities[0])}–"
+                            f"{format_number(quantities[1])}"
+                        )
+                    else:
+                        quantity_text = format_number(
+                            converted_rows.iloc[0]["converted_quantity"]
+                        )
+                    display_unit = converted_rows.iloc[0]["display_unit"]
 
                     with ingredient_col:
-
                         st.markdown(
                             f"""
                             <div class="recipe-line">
-                                {format_number(converted_row["converted_quantity"])}
-                                {converted_row["display_unit"]}
+                                {quantity_text}
+                                {display_unit}
                                 {parsed_row["ingredient"]}
                             </div>
                             """,
@@ -861,35 +893,5 @@ salt to taste""",
                         """,
                         unsafe_allow_html=True
                     )
-
-                # =============================================
-                # MEASURABLE RANGES
-                # V1: scale range but retain original unit
-                # =============================================
-
-                elif row_type == "measurable_range":
-
-                    scaled_min = (
-                        parsed_row["quantity_min"]
-                        * scale_factor
-                    )
-
-                    scaled_max = (
-                        parsed_row["quantity_max"]
-                        * scale_factor
-                    )
-
-                    st.markdown(
-                        f"""
-                        <div class="recipe-line">
-                            {format_number(scaled_min)}–{format_number(scaled_max)}
-                            {parsed_row["unit"]}
-                            {parsed_row["ingredient"]}
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-
-                
 
     #python -m streamlit run app.py
