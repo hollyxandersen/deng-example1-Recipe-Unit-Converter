@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-from api import load_ingredient_data
+from api import load_ingredient_data, get_cache_status, CACHE_MAX_AGE_DAYS
 from parser import parse_recipe_text
 from transform import (
     make_ingredient_dataframe,
@@ -27,48 +27,431 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-        .block-container {
-            max-width: 950px;
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
+    /* --- Warm recipe-card design, refined to match the original sketch --- */
+    :root {
+        --recipe-orange: #D95C20;
+        --recipe-orange-deep: #C74F16;
+        --recipe-orange-soft: #E8A06C;
+        --recipe-peach: #F7D7AF;
+        --recipe-cream: #FBF2E4;
+        --recipe-cream-2: #FFF9F1;
+        --recipe-ink: #2F2A26;
+        --recipe-muted: #7C6F67;
+        --recipe-border: #6B4B39;
+    }
 
-        h1, h2, h3 {
-            margin-top: 0;
-        }
+    .stApp {
+        background: #FCF8F3;
+    }
 
-        .recipe-line {
-            padding: 0.3rem 0;
-            font-size: 1.05rem;
-        }
+    .block-container {
+        max-width: 1100px;
+        padding-top: 1.15rem;
+        padding-bottom: 3rem;
+    }
 
-        .recipe-note {
-            color: #777;
-            font-style: italic;
-            padding: 0.5rem 0.7rem;
+    h1, h2, h3 { margin-top: 0; }
 
-            white-space: normal;
-            overflow-wrap: anywhere;
-            word-break: break-word;
-        }
+    h1 {
+        color: var(--recipe-orange-deep) !important;
+        font-size: clamp(2.55rem, 4vw, 3.35rem) !important;
+        letter-spacing: -0.045em;
+        line-height: 1.02;
+        font-weight: 760 !important;
+        margin-bottom: 0.8rem !important;
+    }
 
-        .recipe-header {
-            font-weight: 700;
-            margin-top: 1.4rem;
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
+    /* Overall joined shell */
+    .st-key-app_shell {
+        background: linear-gradient(to right, var(--recipe-peach) 0%, var(--recipe-peach) 43%, var(--recipe-cream) 43%, var(--recipe-cream) 100%);
+        border: 2px solid var(--recipe-border);
+        border-radius: 28px;
+        padding: 0 !important;
+        overflow: hidden;
+        box-shadow: 0 10px 32px rgba(92, 57, 35, 0.07);
+    }
 
-        .cache-note {
-            font-size: 0.8rem;
-            color: #777;
+    .st-key-app_shell > div {
+        padding: 0 !important;
+    }
+
+    .st-key-app_shell [data-testid="stHorizontalBlock"] {
+        gap: 0 !important;
+        align-items: stretch;
+    }
+
+    /* Panels */
+    .st-key-input_panel {
+        background: var(--recipe-peach);
+        padding: 1.7rem 1.35rem 1.4rem;
+        min-height: 700px;
+        border-right: 2px solid rgba(107, 75, 57, 0.45);
+    }
+
+    .st-key-output_panel {
+        background: var(--recipe-cream);
+        padding: 1.7rem 1.45rem 1.45rem;
+        min-height: 700px;
+    }
+
+    .st-key-input_panel h3 {
+        color: var(--recipe-orange-deep) !important;
+        font-size: 1.55rem !important;
+        font-weight: 760 !important;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid rgba(217, 92, 32, 0.5);
+        margin-bottom: 0.9rem !important;
+    }
+
+    .st-key-input_panel label,
+    .st-key-output_panel label {
+        color: var(--recipe-ink) !important;
+        font-weight: 560;
+    }
+
+    /* Ingredient input and number fields */
+    .st-key-input_panel textarea {
+        background: var(--recipe-cream-2) !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-radius: 15px !important;
+        color: var(--recipe-ink) !important;
+        line-height: 1.65 !important;
+    }
+
+    .st-key-input_panel [data-testid="stNumberInput"] input,
+    .st-key-input_panel [data-testid="stNumberInput"] button {
+        background: var(--recipe-cream-2) !important;
+    }
+
+    .st-key-input_panel [data-testid="stNumberInput"] > div {
+        border-radius: 12px;
+    }
+
+    .st-key-input_panel [data-testid="stNumberInput"] [data-testid="stWidgetLabel"] p {
+        font-size: 0.83rem;
+    }
+
+    .st-key-input_panel [data-testid="stToggle"] p {
+        font-size: 0.85rem;
+    }
+
+    .st-key-input_panel hr {
+        border-color: rgba(217, 92, 32, 0.35) !important;
+        margin-top: 2rem !important;
+        margin-bottom: 1.8rem !important;
+    }
+
+    /* Right-hand global unit selector */
+    .st-key-output_panel [data-testid="stRadio"] > label p {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--recipe-muted);
+    }
+
+    .st-key-output_panel [data-testid="stRadio"] [role="radiogroup"] {
+        border: 1px solid #E6C2A3;
+        border-radius: 13px;
+        padding: 0.35rem 0.6rem;
+        background: #FFF1DE;
+        gap: 0.8rem;
+        width: fit-content;
+    }
+
+    .st-key-output_panel [data-testid="stRadio"] [role="radiogroup"] label {
+        font-size: 0.85rem;
+    }
+
+    /* Selectboxes: force warm cream instead of default grey */
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div > div,
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] * {
+        background: #FFF8EF !important;
+    }
+
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div {
+        border: 1px solid #E7CCB5 !important;
+        border-radius: 12px !important;
+        color: var(--recipe-ink) !important;
+        box-shadow: none !important;
+    }
+
+    .st-key-output_panel [data-testid="stSelectbox"] svg {
+        fill: #7E6C61 !important;
+    }
+
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div:focus-within {
+        border-color: var(--recipe-orange) !important;
+        box-shadow: 0 0 0 1px rgba(217, 92, 32, 0.22) !important;
+    }
+
+    .st-key-output_panel [data-testid="stCaptionContainer"] {
+        color: var(--recipe-muted);
+        margin-bottom: 1rem;
+    }
+
+    .recipe-line {
+        padding: 0.52rem 0;
+        font-size: 1.02rem;
+        color: var(--recipe-ink);
+        line-height: 1.55;
+    }
+
+    .recipe-note {
+        color: var(--recipe-muted);
+        font-style: italic;
+        padding: 0.45rem 0.55rem;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        background: rgba(255, 224, 188, 0.24);
+        border-radius: 8px;
+    }
+
+    .recipe-header {
+        color: var(--recipe-orange-deep);
+        font-weight: 760;
+        margin-top: 1.6rem;
+        margin-bottom: 0.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 0.84rem;
+    }
+
+    .cache-note {
+        font-size: 0.78rem;
+        color: var(--recipe-muted);
+        line-height: 1.5;
+    }
+
+    /* Disabled cache refresh remains visibly disabled */
+    .st-key-input_panel button {
+        border-radius: 10px !important;
+    }
+
+    .st-key-input_panel button:disabled {
+        opacity: 0.62;
+    }
+
+    @media (max-width: 760px) {
+        .block-container { padding: 1rem 0.75rem 2rem; }
+        .st-key-app_shell {
+            border-radius: 20px;
         }
+        .st-key-app_shell [data-testid="stHorizontalBlock"] {
+            gap: 0 !important;
+        }
+        .st-key-input_panel,
+        .st-key-output_panel {
+            min-height: 0;
+            padding: 1.15rem 1rem;
+        }
+        .st-key-input_panel {
+            border-right: 0;
+            border-bottom: 2px solid rgba(107, 75, 57, 0.3);
+        }
+    }
+
+    /* Streamlit's header can otherwise leave a bright strip above the page. */
+    [data-testid="stHeader"],
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewBlockContainer"] {
+        background-color: #FCF8F3 !important;
+    }
+    [data-testid="stDecoration"] { display: none !important; }
+
+    /* Stretch the two Streamlit columns to the same height. */
+    .st-key-app_shell [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+    }
+    .st-key-app_shell [data-testid="stHorizontalBlock"] > [data-testid="column"] > div,
+    .st-key-app_shell [data-testid="stHorizontalBlock"] > [data-testid="column"] > div > div {
+        flex-grow: 1;
+    }
+    .st-key-app_shell .st-key-input_panel,
+    .st-key-app_shell .st-key-output_panel {
+        flex: 1 1 auto;
+    }
+
+    /* The outer BaseWeb text-area wrapper is the only visible border. */
+    .st-key-input_panel [data-testid="stTextArea"] [data-baseweb="textarea"] {
+        background: #FFF9F1 !important;
+        border: 1px solid #E6B58D !important;
+        border-radius: 15px !important;
+        overflow: hidden;
+        box-shadow: none !important;
+    }
+    .st-key-input_panel [data-testid="stTextArea"] textarea:focus {
+        box-shadow: none !important;
+    }
+    .st-key-input_panel [data-testid="stTextArea"] [data-baseweb="textarea"]:focus-within {
+        border-color: var(--recipe-orange) !important;
+    }
+
+    /* Streamlit / BaseWeb selectboxes: override the combobox itself, not
+       merely its outer wrapper (which leaves the familiar grey fill). */
+    .st-key-app_shell [data-testid="stSelectbox"] [role="combobox"],
+    .st-key-app_shell [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    .st-key-app_shell [data-testid="stSelectbox"] [data-baseweb="select"] > div > div {
+        background-color: #FFF4E4 !important;
+        background-image: none !important;
+    }
+    .st-key-app_shell [data-testid="stSelectbox"] [role="combobox"] {
+        border: 1px solid #E7CCB5 !important;
+        border-radius: 11px !important;
+    }
+    .st-key-app_shell [data-testid="stSelectbox"] [aria-disabled="true"] {
+        opacity: .72;
+    }
+    @media (max-width: 760px) {
+        .st-key-app_shell {
+            background: var(--recipe-cream);
+        }
+        .st-key-app_shell [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+            display: block;
+        }
+    }
+    /* Final control polish: one crisp textarea border, no nested outlines. */
+    .st-key-input_panel [data-testid="stTextArea"] [data-baseweb="textarea"] {
+        border: 1.5px solid #D99C70 !important;
+        border-radius: 13px !important;
+        overflow: hidden !important;
+        background: #FFF9F1 !important;
+        box-shadow: none !important;
+    }
+    .st-key-input_panel [data-testid="stTextArea"] textarea {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+    }
+    .st-key-input_panel [data-testid="stTextArea"] [data-baseweb="textarea"]:focus-within {
+        border-color: var(--recipe-orange) !important;
+    }
+
+    /* Match the right panel, including the arrow area of the closed dropdown. */
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"],
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div,
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div > div,
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"],
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"] * {
+        background-color: var(--recipe-cream) !important;
+        background-image: none !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"] {
+        border: 1px solid #DCC8B3 !important;
+        border-radius: 10px !important;
+        box-shadow: none !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"]:focus-within {
+        border-color: var(--recipe-orange) !important;
+    }
+
+    /* Make the number field and the +/- buttons one seamless control. */
+    .st-key-input_panel [data-testid="stNumberInput"] [data-baseweb="input"],
+    .st-key-input_panel [data-testid="stNumberInput"] [data-baseweb="input"] > div,
+    .st-key-input_panel [data-testid="stNumberInput"] input,
+    .st-key-input_panel [data-testid="stNumberInput"] button,
+    .st-key-input_panel [data-testid="stNumberInput"] button * {
+        background-color: #FFF9F1 !important;
+        background-image: none !important;
+        box-shadow: none !important;
+    }
+    .st-key-input_panel [data-testid="stNumberInput"] [data-baseweb="input"] {
+        border-radius: 10px !important;
+        overflow: hidden !important;
+    }
+    .st-key-input_panel [data-testid="stNumberInput"] button {
+        border-radius: 0 !important;
+    }
+    .st-key-input_panel [data-testid="stNumberInput"] button:hover {
+        background-color: #F5E0CA !important;
+    }
+
+    /* V5 overrides: apply to the actual BaseWeb widget subtree, not only
+       the text area inside it. The page background is #FCF8F3. */
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"],
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] *:not(svg):not(path),
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"],
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"] *:not(svg):not(path) {
+        background: #FCF8F3 !important;
+        background-color: #FCF8F3 !important;
+        background-image: none !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div {
+        border: 1px solid #E2C6AD !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] svg {
+        background: transparent !important;
+    }
+
+    /* Streamlit renders stepper controls as their own buttons and wrappers;
+       repaint these too, so there are no grey blocks around +/- . */
+    .st-key-input_panel [data-testid="stNumberInput"] :is(
+        [data-baseweb="input"],
+        [data-baseweb="input"] *,
+        [data-testid="stNumberInputStepDown"],
+        [data-testid="stNumberInputStepUp"],
+        [data-testid="stNumberInputStepDown"] *,
+        [data-testid="stNumberInputStepUp"] *,
+        button,
+        button > div
+    ):not(svg):not(path) {
+        background: #FFF9F1 !important;
+        background-color: #FFF9F1 !important;
+        background-image: none !important;
+    }
+    .st-key-input_panel [data-testid="stNumberInput"] button {
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    .st-key-input_panel [data-testid="stNumberInput"] button:hover,
+    .st-key-input_panel [data-testid="stNumberInput"] button:hover > div {
+        background: #F4DFC8 !important;
+    }
+
+    /* V6: the shell's zero-gap rule should not collapse nested portion columns. */
+    .st-key-input_panel [data-testid="stHorizontalBlock"] {
+        gap: 0.85rem !important;
+    }
+
+    /* One continuous select control, without a nested outlined textbox. */
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div {
+        background: #FCF8F3 !important;
+        border: 1px solid #DEC4AD !important;
+        border-radius: 10px !important;
+        box-shadow: none !important;
+        overflow: hidden !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"],
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"]:focus,
+    .st-key-output_panel [data-testid="stSelectbox"] [role="combobox"]:focus-within,
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div > div {
+        background: #FCF8F3 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div:focus-within {
+        border-color: #D95C20 !important;
+        box-shadow: 0 0 0 1px rgba(217,92,32,0.18) !important;
+    }
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] > div > div:last-child,
+    .st-key-output_panel [data-testid="stSelectbox"] [data-baseweb="select"] svg {
+        background: #FCF8F3 !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # ---------------------------------------------------------
 # HELPERS
@@ -105,7 +488,15 @@ def default_unit(original_unit, preference):
 # REFERENCE DATA
 # ---------------------------------------------------------
 
-data = load_ingredient_data()
+# Never automatically refresh an existing cache. A first-run download
+# happens only when ingredients.json does not exist.
+try:
+    data = load_ingredient_data()
+except (RuntimeError, ValueError, OSError) as exc:
+    st.error(f"Ingredient reference data could not be loaded: {exc}")
+    st.stop()
+
+cache_status = get_cache_status()
 
 ingredients_df = make_ingredient_dataframe(data)
 alias_df = make_alias_dataframe(ingredients_df)
@@ -115,9 +506,9 @@ alias_df = make_alias_dataframe(ingredients_df)
 # APP
 # ---------------------------------------------------------
 
-st.title("Recipe Unit Converter")
+st.markdown("<h1>Recipe Unit Converter</h1>", unsafe_allow_html=True)
 
-with st.container(border=True):
+with st.container(key="app_shell", border=False):
 
     input_col, output_col = st.columns(
         [0.43, 0.57],
@@ -128,7 +519,7 @@ with st.container(border=True):
     # LEFT PANEL
     # =====================================================
 
-    with input_col:
+    with input_col, st.container(key="input_panel"):
 
         st.markdown("### Paste your ingredients")
 
@@ -143,7 +534,7 @@ salt to taste""",
             label_visibility="collapsed"
         )
 
-        portion_col1, portion_col2 = st.columns(2)
+        portion_col1, portion_col2 = st.columns(2, gap="small")
 
         with portion_col1:
             original_portions = st.number_input(
@@ -178,17 +569,40 @@ salt to taste""",
                 unsafe_allow_html=True
             )
 
-        st.button(
+        if cache_status["exists"]:
+            cache_date = cache_status["cached_at"].strftime("%d %b %Y")
+            st.markdown(
+                f'<div class="cache-note">Local cache saved: {cache_date} '
+                f'({cache_status["age_days"]} days ago)</div>',
+                unsafe_allow_html=True
+            )
+
+        if cache_status["stale"]:
+            st.caption(f"Local cache is at least {CACHE_MAX_AGE_DAYS} days old. "
+                       "You can refresh it when ready.")
+
+        if st.button(
             "Refresh cache",
-            disabled=True,
-            help="Automatic cache refresh controls will be added later."
-        )
+            disabled=not cache_status["stale"],
+            help=("Download updated reference data" if cache_status["stale"]
+                  else f"Available when the cache is {CACHE_MAX_AGE_DAYS} days old"),
+        ):
+            try:
+                load_ingredient_data(force_refresh=True)
+            except (RuntimeError, ValueError, OSError) as exc:
+                st.error(f"Refresh failed. Your existing cache was kept. Details: {exc}")
+            else:
+                st.session_state["cache_refresh_message"] = "Ingredient cache refreshed successfully."
+                st.rerun()
+
+        if st.session_state.pop("cache_refresh_message", None):
+            st.success("Ingredient cache refreshed successfully.")
 
     # =====================================================
     # RIGHT PANEL
     # =====================================================
 
-    with output_col:
+    with output_col, st.container(key="output_panel"):
 
         preference = st.radio(
             "Default units",
@@ -198,7 +612,8 @@ salt to taste""",
 
         st.caption(
             "Can't convert an ingredient? Try simplifying or clarifying its name — "
-            "for example, “unsalted butter” → “butter”, or “sugar” → “caster sugar”."
+            "for example, “unsalted butter” → “butter”. " \
+            "If an ingredient has several possible matches, use the dropdown to select an option."
         )
 
         if not recipe_text.strip():
