@@ -24,7 +24,7 @@ Key functionality includes:
 - **Unit conversion and scaling:** Converts between supported weight and volume units using ingredient-specific conversion factors, while adjusting quantities for different portion sizes.
 - **Recipe structure preservation:** Retains ingredient order, section headings and unparsed text in the converted output.
 
-![Recipe Unit Converter Screenshot](images/RecipeUnitConverterScreenshot.png)
+![Recipe Unit Converter Screenshot](Images/RecipeUnitConverterScreenshot.png)
 
 ## 2. The data
 
