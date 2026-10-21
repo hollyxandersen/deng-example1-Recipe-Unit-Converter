@@ -1,4 +1,4 @@
-# deng-example1
+# The Information Lab - DEng Data School Application Example 1 - Recipe Unit Converter 
 **Note — About this example**
 
 > This application was developed as an example for The Information Lab's Data Engineering School application process.
