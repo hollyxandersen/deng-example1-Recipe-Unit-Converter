@@ -1,3 +1,39 @@
+"""
+INGREDIENT MATCHING AND TRANSFORMATIONS
+---------------------------------------
+
+Prepares ExactCup reference data for matching, links parsed
+recipe ingredients to conversion factors, and handles unit
+conversions and portion scaling.
+
+Main functions
+--------------
+normalise_match_name():
+    Standardises ingredient names for matching.
+
+make_ingredient_dataframe():
+    Converts ingredient JSON data into a DataFrame.
+
+make_alias_dataframe():
+    Expands ingredient aliases into individual lookup rows.
+
+find_ingredient_candidates():
+    Searches for possible matches to unmatched ingredients.
+
+match_recipe_ingredients():
+    Matches parsed ingredients to ExactCup reference data.
+
+convert_to_grams():
+    Converts ingredient quantities into grams.
+
+convert_to_per_portion():
+    Normalises quantities to a single portion.
+
+convert_from_grams():
+    Scales quantities and converts them to the selected unit.
+"""
+
+
 import pandas as pd
 import re
 

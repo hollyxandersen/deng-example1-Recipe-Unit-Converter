@@ -1,3 +1,37 @@
+"""
+RECIPE TEXT PARSER
+------------------
+
+Converts unstructured recipe ingredient lists into a
+DataFrame containing quantities, units, ingredient names,
+notes and row classifications.
+
+Main functions
+--------------
+clean_recipe_line():
+    Removes leading formatting characters.
+
+split_ingredient_and_note():
+    Separates ingredient names from comma-delimited notes.
+
+remove_leading_of():
+    Removes optional "of" following measurement units.
+
+is_recipe_header():
+    Identifies likely recipe section headings.
+
+parse_quantity():
+    Extracts quantities, fractions, ranges and attached units.
+
+parse_recipe_line():
+    Extracts ingredient details and classifies individual lines.
+
+parse_recipe_text():
+    Processes the complete recipe into a Pandas DataFrame.
+"""
+
+
+
 import pandas as pd
 from fractions import Fraction
 import re

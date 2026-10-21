@@ -1,3 +1,39 @@
+"""
+STREAMLIT APPLICATION
+---------------------
+
+Provides the interactive user interface and coordinates
+the recipe conversion pipeline.
+
+Loads reference data, accepts recipe text and portion
+settings, calls parsing and matching functions, and
+displays converted ingredients in their original order.
+
+The interface also allows users to select alternative
+ingredient matches, change output units and refresh
+cached reference data when eligible.
+
+Local helper functions
+----------------------
+format_number():
+    Formats quantities for display.
+
+default_unit():
+    Determines the initial output unit from user preferences.
+
+Main execution
+--------------
+1. Configure the Streamlit interface.
+2. Load and prepare ExactCup reference data.
+3. Accept recipe text and user preferences.
+4. Parse and classify recipe lines.
+5. Match measurable ingredients to reference data.
+6. Resolve user-selected ingredient matches.
+7. Convert and scale quantities.
+8. Render the recipe in its original order.
+"""
+
+
 import streamlit as st
 import pandas as pd
 

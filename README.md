@@ -24,7 +24,7 @@ Key functionality includes:
 - **Unit conversion and scaling:** Converts between supported weight and volume units using ingredient-specific conversion factors, while adjusting quantities for different portion sizes.
 - **Recipe structure preservation:** Retains ingredient order, section headings and unparsed text in the converted output.
 
-**[Insert screenshot of completed application]**
+![Recipe Unit Converter Screenshot](images/RecipeUnitConverterScreenshot.png)
 
 ## 2. The data
 
@@ -37,8 +37,8 @@ Because the reference dataset is relatively small and does not require frequent 
 New responses are checked before replacing the existing cache, helping preserve usable reference data if a refresh fails.
 
 The reference data is then transformed into two Pandas DataFrames:
-- Ingredient reference table: Retains canonical ingredient information and conversion factors.
-- Alias lookup table: Expands alternative ingredient names into individual rows, each associated with the relevant canonical ingredient identifier (slug).
+- **Ingredient reference table:** Retains canonical ingredient information and conversion factors.
+- **Alias lookup table:** Expands alternative ingredient names into individual rows, each associated with the relevant canonical ingredient identifier (slug).
 This reshaping allows recipe ingredients to be matched using normalised names and DataFrame joins, without repeatedly searching nested JSON structures.
 
 ## 3. How it works

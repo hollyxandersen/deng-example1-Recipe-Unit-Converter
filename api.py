@@ -1,4 +1,25 @@
-"""ExactCup ingredient reference data: local cache + safe refresh."""
+"""
+API INGESTION AND CACHING
+-------------------------
+
+Retrieves ingredient reference data from the ExactCup API
+and manages the local JSON cache.
+
+The cache is used on subsequent runs to avoid unnecessary
+API requests. After 30 days, users can manually refresh
+the data. Existing cached data is preserved if a refresh fails.
+
+Main functions
+--------------
+load_ingredient_data():
+    Loads ingredient data from the cache or fetches it
+    from the API when no cache exists.
+
+Additional cache helpers:
+    Check the age of cached data, determine whether
+    refresh is available, and safely replace cached data.
+"""
+
 
 import json
 import os
