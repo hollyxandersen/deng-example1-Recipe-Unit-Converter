@@ -1,4 +1,4 @@
-# deng-example1
+# The Information Lab - DEng Data School Application Example 1 - Recipe Unit Converter 
 **Note — About this example**
 
 > This application was developed as an example for The Information Lab's Data Engineering School application process.
@@ -24,7 +24,7 @@ Key functionality includes:
 - **Unit conversion and scaling:** Converts between supported weight and volume units using ingredient-specific conversion factors, while adjusting quantities for different portion sizes.
 - **Recipe structure preservation:** Retains ingredient order, section headings and unparsed text in the converted output.
 
-![Recipe Unit Converter Screenshot](images/RecipeUnitConverterScreenshot.png)
+![Recipe Unit Converter Screenshot](Images/RecipeUnitConverterScreenshot.png)
 
 ## 2. The data
 
@@ -141,16 +141,17 @@ flowchart TD
 The application is built using Python, Pandas and Streamlit. It requires an internet connection on the first run to retrieve ingredient reference data from the ExactCup API. Subsequent runs use the locally cached JSON file.
 
 ```bash
-git clone <repo-url>
-cd <repo-name>
 
-# Create and activate a virtual environment
+git clone https://github.com/hollyxandersen/deng-example1-Recipe-Unit-Converter.git
+cd deng-example1-Recipe-Unit-Converter
+
+# Create a virtual environment
 python -m venv .venv
 
-# Windows
+# Activate it on Windows
 .venv\Scripts\activate
 
-# macOS / Linux
+# On macOS / Linux, use instead:
 # source .venv/bin/activate
 
 # Install dependencies
@@ -158,6 +159,7 @@ pip install -r requirements.txt
 
 # Launch the application
 python -m streamlit run app.py
+
 ```
 
 On first launch, the application fetches ingredient reference data and saves it locally as `ingredients.json`. If a valid cache already exists, it is loaded instead, without making an API request.
