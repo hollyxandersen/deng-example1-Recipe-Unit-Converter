@@ -28,7 +28,9 @@ Key functionality includes:
 
 ## 2. The data
 
-The application uses the ExactCup API, a small JSON dataset providing ingredient names, aliases and ingredient-specific conversion factors.
+The application uses the [ExactCup API](https://exactcup.github.io/api/), a small JSON dataset providing ingredient names, aliases and ingredient-specific conversion factors.
+
+Ingredient density data is provided by [ExactCup](https://exactcup.github.io/) under the [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). This project reshapes the reference data into ingredient and alias lookup tables for matching and conversion.
 
 The reference data is retrieved using Python's requests library and cached locally as ingredients.json.
 

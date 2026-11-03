@@ -930,4 +930,8 @@ salt to taste""",
                         unsafe_allow_html=True
                     )
 
+st.caption(
+    "Ingredient density data by [ExactCup](https://exactcup.github.io/) "
+    "· [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+)
     #python -m streamlit run app.py
