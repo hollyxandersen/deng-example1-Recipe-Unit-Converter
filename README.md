@@ -166,6 +166,21 @@ python -m streamlit run app.py
 
 On first launch, the application fetches ingredient reference data and saves it locally as `ingredients.json`. If a valid cache already exists, it is loaded instead, without making an API request.
 
+### Running tests
+
+Install the dependencies if not already done and run the tests from the repo root:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -v
+```
+
+The tests cover recipe parsing, ingredient matching, unit conversion, portion
+scaling and cache behaviour. They use fixed test data and simulated API
+responses, so they do not require network access or modify the real cache.
+Unitless ranges are currently retained as unscaled text; tests document this
+limitation.
+
 ## 5. What I would do next
 
 A few improvements could make the application more reliable and flexible:

@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
+# Personal learning notes
+/learning_notes/
